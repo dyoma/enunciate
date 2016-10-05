@@ -16,6 +16,7 @@
 package com.webcohesion.enunciate.modules.jackson1.api.impl;
 
 import com.webcohesion.enunciate.EnunciateException;
+import com.webcohesion.enunciate.api.datatype.DataTypeReference;
 import com.webcohesion.enunciate.api.datatype.Example;
 import com.webcohesion.enunciate.facets.FacetFilter;
 import com.webcohesion.enunciate.javac.decorations.element.ElementUtils;
@@ -32,6 +33,7 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.node.ArrayNode;
+import org.codehaus.jackson.node.ContainerNode;
 import org.codehaus.jackson.node.JsonNodeFactory;
 import org.codehaus.jackson.node.ObjectNode;
 
@@ -46,9 +48,11 @@ import java.util.Random;
 public class ExampleImpl implements Example {
 
   private final ObjectTypeDefinition type;
+  private final List<DataTypeReference.ContainerType> containers;
 
-  public ExampleImpl(ObjectTypeDefinition type) {
+  public ExampleImpl(ObjectTypeDefinition type, List<DataTypeReference.ContainerType> containers) {
     this.type = type;
+    this.containers = containers;
   }
 
   @Override
@@ -64,9 +68,11 @@ public class ExampleImpl implements Example {
     context.stack = new LinkedList<String>();
     build(node, this.type, context);
 
+    ContainerNode outerNode = wrapWithContainers(node);
+
     ObjectMapper mapper = new ObjectMapper().enable(SerializationConfig.Feature.INDENT_OUTPUT);
     try {
-      return mapper.writeValueAsString(node);
+      return mapper.writeValueAsString(outerNode);
     }
     catch (JsonProcessingException e) {
       throw new EnunciateException(e);
@@ -74,6 +80,23 @@ public class ExampleImpl implements Example {
     catch (IOException e) {
       throw new EnunciateException(e);
     }
+  }
+
+  private ContainerNode wrapWithContainers(ObjectNode contentNode) {
+    if (containers == null) return contentNode;
+    ContainerNode node = contentNode;
+    for (int i = containers.size() - 1; i >= 0; i--) {
+      DataTypeReference.ContainerType containerType = containers.get(i);
+      switch (containerType) {
+        case array:
+        case collection:
+        case list:
+          ArrayNode arrayNode = JsonNodeFactory.instance.arrayNode();
+          arrayNode.add(node);
+          node = arrayNode;
+      }
+    }
+    return node;
   }
 
   private void build(ObjectNode node, ObjectTypeDefinition type, Context context) {

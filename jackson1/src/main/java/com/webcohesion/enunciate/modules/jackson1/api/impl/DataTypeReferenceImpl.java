@@ -64,7 +64,7 @@ public class DataTypeReferenceImpl implements DataTypeReference {
     if (jsonType instanceof JsonClassType) {
       TypeDefinition typeDef = ((JsonClassType) jsonType).getTypeDefinition();
       if (typeDef instanceof ObjectTypeDefinition) {
-        dataType = new ObjectDataTypeImpl((ObjectTypeDefinition) typeDef);
+        dataType = new ObjectDataTypeImpl((ObjectTypeDefinition) typeDef, containers);
       }
       else if (typeDef instanceof EnumTypeDefinition) {
         dataType = new EnumDataTypeImpl((EnumTypeDefinition) typeDef);
