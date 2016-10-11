@@ -15,22 +15,17 @@
  */
 package com.webcohesion.enunciate.modules.jackson1.api.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedSet;
-
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-
-import com.webcohesion.enunciate.api.datatype.BaseType;
-import com.webcohesion.enunciate.api.datatype.DataTypeReference;
-import com.webcohesion.enunciate.api.datatype.Example;
-import com.webcohesion.enunciate.api.datatype.Property;
-import com.webcohesion.enunciate.api.datatype.Value;
+import com.webcohesion.enunciate.api.datatype.*;
 import com.webcohesion.enunciate.facets.FacetFilter;
 import com.webcohesion.enunciate.modules.jackson1.model.Member;
 import com.webcohesion.enunciate.modules.jackson1.model.ObjectTypeDefinition;
 import com.webcohesion.enunciate.modules.jackson1.model.types.JsonClassType;
 import com.webcohesion.enunciate.modules.jackson1.model.types.JsonType;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedSet;
 
 /**
  * @author Ryan Heaton
@@ -38,10 +33,18 @@ import com.webcohesion.enunciate.modules.jackson1.model.types.JsonType;
 public class ObjectDataTypeImpl extends DataTypeImpl {
 
   private final ObjectTypeDefinition typeDefinition;
+  private final List<DataTypeReference.ContainerType> containers;
 
   public ObjectDataTypeImpl(ObjectTypeDefinition typeDefinition) {
     super(typeDefinition);
     this.typeDefinition = typeDefinition;
+    containers = null;
+  }
+
+  public ObjectDataTypeImpl(ObjectTypeDefinition typeDefinition, List<DataTypeReference.ContainerType> containers) {
+    super(typeDefinition);
+    this.typeDefinition = typeDefinition;
+    this.containers = containers;
   }
 
   @Override
@@ -117,6 +120,6 @@ public class ObjectDataTypeImpl extends DataTypeImpl {
 
   @Override
   public Example getExample() {
-    return new ExampleImpl(this.typeDefinition);
+    return new ExampleImpl(this.typeDefinition, this.containers);
   }
 }
