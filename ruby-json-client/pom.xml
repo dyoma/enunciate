@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.webcohesion.enunciate</groupId>
     <artifactId>enunciate-parent</artifactId>
-    <version>2.7.0-SNAPSHOT</version>
+    <version>2.6.0-alm-1-SNAPSHOT</version>
   </parent>
 
   <artifactId>enunciate-ruby-json-client</artifactId>
@@ -182,14 +182,14 @@ Recommended configuration in settings.xml:
                       <classpath refid="maven.test.classpath" />
                     </taskdef>
 
-                    <mkdir dir="${project.build.directory}/rubytests"/>
+                    <mkdir dir="${project.build.directory}/rubytests" />
 
                     <enunciate basedir="${basedir}/src/test/samples" configFile="${basedir}/src/test/samples/enunciate.xml" buildDir="${project.build.directory}/enunciate">
                       <include name="**/*.java" />
                       <classpath refid="maven.test.classpath" />
                     </enunciate>
 
-                    <copy todir="${project.build.directory}/enunciate/ruby-json-client/src" file="${project.build.testSourceDirectory}/../ruby/processjson.rb"/>
+                    <copy todir="${project.build.directory}/enunciate/ruby-json-client/src" file="${project.build.testSourceDirectory}/../ruby/processjson.rb" />
                   </tasks>
                 </configuration>
                 <goals>
