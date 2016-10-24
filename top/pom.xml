@@ -54,17 +54,17 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-idl</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-idl</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-java-xml-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-java-xml-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -72,41 +72,41 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-csharp-xml-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-csharp-xml-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-c-xml-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-c-xml-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-obj-c-xml-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-obj-c-xml-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-php-xml-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-php-xml-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-php-json-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-php-json-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-ruby-json-client</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-ruby-json-client</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -114,11 +114,11 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>enunciate-gwt-json-overlay</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>${project.groupId}</groupId>-->
+      <!--<artifactId>enunciate-gwt-json-overlay</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>${project.groupId}</groupId>

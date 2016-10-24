@@ -13,12 +13,15 @@
     <developer>
       <name>Ryan Heaton</name>
     </developer>
+    <developer>
+      <name>Dmitry Peshekhonov</name>
+    </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:stoicflame/enunciate.git</connection>
-    <url>https://github.com/stoicflame/enunciate</url>
-    <developerConnection>scm:git:git@github.com:stoicflame/enunciate.git</developerConnection>
+    <connection>scm:git:git@github.com:dyoma/enunciate.git</connection>
+    <url>https://github.com/dyoma/enunciate</url>
+    <developerConnection>scm:git:git@github.com:dyoma/enunciate.git</developerConnection>
   </scm>
 
   <licenses>
@@ -42,17 +45,17 @@
     <module>jaxws</module>
     <module>spring-web</module>
 
-    <module>idl</module>
-    <module>java-xml-client</module>
+    <!--<module>idl</module>-->
+    <!--<module>java-xml-client</module>-->
     <module>java-json-client</module>
-    <module>csharp-xml-client</module>
-    <module>c-xml-client</module>
-    <module>obj-c-xml-client</module>
-    <module>php-xml-client</module>
-    <module>php-json-client</module>
-    <module>ruby-json-client</module>
+    <!--<module>csharp-xml-client</module>-->
+    <!--<module>c-xml-client</module>-->
+    <!--<module>obj-c-xml-client</module>-->
+    <!--<module>php-xml-client</module>-->
+    <!--<module>php-json-client</module>-->
+    <!--<module>ruby-json-client</module>-->
     <module>javascript-client</module>
-    <module>gwt-json-overlay</module>
+    <!--<module>gwt-json-overlay</module>-->
     <module>swagger</module>
     <module>docs</module>
 
@@ -605,15 +608,13 @@ your path down the rabbit hole.</message>
   </dependencyManagement>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
     <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>almworks.timekeeper</id>
+      <name>TimeKeeper released artifacts</name>
+      <url>http://artifactory.almworks.com/artifactory/timekeeper-local</url>
     </repository>
   </distributionManagement>
+
 
   <profiles>
     <profile>
