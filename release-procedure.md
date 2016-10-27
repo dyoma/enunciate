@@ -1,3 +1,10 @@
+1. Set JAVA_HOME to Java 7 location
+  1. JAVA_HOME=...
+  2. export JAVA_HOME
+2. mvn -B release:prepare
+3. mvn release:perform -P enunciate-full-tests
+
+
 1. Make sure any new modules are included
   1. Make sure the parent pom includes any new modules.
   2. Make sure the top pom includes any new modules.
