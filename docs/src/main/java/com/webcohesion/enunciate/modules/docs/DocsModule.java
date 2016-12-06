@@ -15,35 +15,21 @@
  */
 package com.webcohesion.enunciate.modules.docs;
 
-import com.webcohesion.enunciate.EnunciateContext;
-import com.webcohesion.enunciate.EnunciateException;
-import com.webcohesion.enunciate.api.ApiRegistry;
-import com.webcohesion.enunciate.api.Download;
-import com.webcohesion.enunciate.api.DownloadFile;
-import com.webcohesion.enunciate.api.InterfaceDescriptionFile;
-import com.webcohesion.enunciate.api.datatype.Namespace;
-import com.webcohesion.enunciate.api.datatype.Syntax;
+import com.webcohesion.enunciate.*;
+import com.webcohesion.enunciate.api.*;
+import com.webcohesion.enunciate.api.datatype.*;
 import com.webcohesion.enunciate.api.resources.ResourceApi;
-import com.webcohesion.enunciate.api.services.ServiceApi;
-import com.webcohesion.enunciate.api.services.ServiceGroup;
-import com.webcohesion.enunciate.artifacts.Artifact;
-import com.webcohesion.enunciate.artifacts.ClientLibraryArtifact;
-import com.webcohesion.enunciate.artifacts.ClientLibraryJavaArtifact;
-import com.webcohesion.enunciate.artifacts.FileArtifact;
+import com.webcohesion.enunciate.api.services.*;
+import com.webcohesion.enunciate.artifacts.*;
 import com.webcohesion.enunciate.module.*;
 import com.webcohesion.enunciate.util.freemarker.FileDirective;
 import freemarker.cache.URLTemplateLoader;
 import freemarker.core.Environment;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.TemplateExceptionHandler;
+import freemarker.template.*;
 import org.apache.commons.configuration.HierarchicalConfiguration;
 
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
+import java.net.*;
 import java.util.*;
 
 
@@ -298,7 +284,8 @@ public class DocsModule extends BasicGeneratingModule implements ApiRegistryAwar
         InterfaceDescriptionFile swaggerUI = this.apiRegistry.getSwaggerUI();
         if (swaggerUI != null) {
           swaggerUI.writeTo(docsDir);
-          model.put("swaggerUI", swaggerUI);
+          if (this.config.getBoolean("[@swaggerUI]", true))
+            model.put("swaggerUI", swaggerUI);
         }
 
         //iterate through wsdls and make sure the wsdl is copied to the docs dir
